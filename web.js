@@ -1,11 +1,11 @@
-var express = require('express'),
-    index = require('./routes'),
-    path = require('path'),
-    autocomplete = require('autocomplete');
-
+var express = require('express');
+var index = require('./routes');
+var cors = require('cors');
+var path = require('path');
+var port = process.env.PORT || 3000;
 var app = express.createServer(express.logger());
 
-app.configure(function(){
+app.configure(function () {
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -17,10 +17,8 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.get('/', index.page);
-app.get('/airports', index.airports);
+app.get('/airports', cors(), index.airports);
 
-var port = process.env.PORT || 3000;
-app.listen(port, function() {
-  console.log("Listening on " + port);
+app.listen(port, function () {
+  console.log('Listening on ' + port);
 });
