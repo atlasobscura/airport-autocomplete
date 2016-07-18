@@ -2,11 +2,12 @@
   "name": "airport-autocomplete",
   "version": "0.0.1",
   "dependencies": {
+    "autocomplete": "*",
+    "cors": "^2.7.1",
     "express": "2.5.x",
     "jade": "*",
-    "autocomplete": "*",
-    "underscore": "*",
-    "jquery": "*"
+    "jquery": "*",
+    "underscore": "*"
   },
   "engines": {
     "node": "5.9.x",
